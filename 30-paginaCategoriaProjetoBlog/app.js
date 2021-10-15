@@ -91,6 +91,28 @@ const Categoria = mongoose.model('categorias')
         })
     })
 
+    app.get('/categorias/:slug', (req, res)=>{
+        Categoria.findOne({slug: req.params.slug}).then((categoria)=>{
+            if(categoria){
+
+                Postagem.findOne({categoria: categoria._id}).then((postagens)=>{
+                    res.render('categorias/postagens', {postagens: postagens})
+                }).catch((err)=>{
+                    req.flash('errpr_msg', 'Erro ao carregar postagem')
+                    res.redirect('/')
+                })
+                    
+            }else{
+                req.flash('error_msg', 'Erro interno ao carregar categoria')
+                res.redirect('/')
+            }
+ 
+        }).catch((err)=>{
+                req.flash('error_msg', 'Erro ao carregar página')
+                res.redirect('/')
+        })     
+    })
+
     app.use('/admin', admin)
     
 //Outros
