@@ -1,0 +1,22 @@
+{
+  "name": "13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cadastroBdD",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parse": "^0.1.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.13"
+  }
+}
